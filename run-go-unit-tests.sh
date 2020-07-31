@@ -3,7 +3,7 @@
 PASS=true
 for DIR in $(echo "$@"|xargs -n1 dirname|sort -u); do
     go test ./"$DIR"
-    if [ "$?" -eq 1 ]; then
+    if [ "$?" -ne 0 ]; then
         PASS=false
     fi
 done
